@@ -9,7 +9,7 @@ class IsCollectionTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function it_should_accept_and_return_an_array()
+    public function it_should_accept_a_list_of_strings_and_return_an_array()
     {
         $strings = [
             new MockString('abc'),

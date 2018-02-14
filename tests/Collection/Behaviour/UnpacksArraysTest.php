@@ -4,12 +4,12 @@ namespace TwoDotsTwice\ValueObject\Collection\Behaviour;
 
 use TwoDotsTwice\ValueObject\String\Behaviour\MockString;
 
-class IsIterableTest extends \PHPUnit_Framework_TestCase
+class UnpacksArraysTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
      */
-    public function it_should_be_usable_in_a_foreach_loop()
+    public function it_should_accept_an_array_of_strings_and_return_an_array()
     {
         $strings = [
             new MockString('abc'),
@@ -19,13 +19,9 @@ class IsIterableTest extends \PHPUnit_Framework_TestCase
             new MockString('nop'),
         ];
 
-        $collection = new MockStringCollection(...$strings);
+        $collection = MockStringCollection::fromArray($strings);
 
-        $returnedStrings = [];
-        foreach ($collection as $string) {
-            $returnedStrings[] = $string;
-        }
-
-        $this->assertEquals($strings, $returnedStrings);
+        $this->assertInstanceOf(MockStringCollection::class, $collection);
+        $this->assertEquals($strings, $collection->toArray());
     }
 }
