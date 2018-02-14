@@ -1,0 +1,15 @@
+language: php
+php:
+- 7.1
+install: composer install
+script:
+- ./vendor/bin/phing test
+after_script:
+- ./vendor/bin/coveralls -vvv
+notifications:
+  email:
+    recipients:
+    - bert@2dotstwice.be
+    - luc@2dotstwice.be
+    - kristof@2dotstwice.be
+
