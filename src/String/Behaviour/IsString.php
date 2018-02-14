@@ -30,6 +30,7 @@ trait IsString
 
     /**
      * @param mixed $value
+     * @throws \InvalidArgumentException
      */
     private function guardString($value)
     {

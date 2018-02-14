@@ -17,6 +17,9 @@ trait HasUUIDFormat
         }
     }
 
+    /**
+     * @return string
+     */
     private function getUUIDPattern()
     {
         return '\\A[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}\\Z';
