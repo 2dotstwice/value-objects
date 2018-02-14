@@ -2,13 +2,13 @@
 
 namespace TwoDotsTwice\ValueObject\String\Behaviour;
 
-trait HasUUIDFormat
+trait MatchesUUIDPattern
 {
     /**
      * @param string $value
      * @throws \InvalidArgumentException
      */
-    private function guardUUIDFormat($value)
+    private function guardUUIDPattern($value)
     {
         $pattern = '/' . $this->getUUIDPattern() . '/';
 

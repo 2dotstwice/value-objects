@@ -2,7 +2,7 @@
 
 namespace TwoDotsTwice\ValueObject\String\Behaviour;
 
-class HasUUIDFormatTest extends \PHPUnit_Framework_TestCase
+class MatchesUUIDPatternTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
