@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace TwoDotsTwice\ValueObject\String\Behaviour;
 
 trait IsString
@@ -11,18 +9,28 @@ trait IsString
      */
     private $value;
 
-    public function toString() : string
+    /**
+     * @return string
+     */
+    public function toString()
     {
         return $this->value;
     }
 
-    public function sameAs($other) : bool
+    /**
+     * @param IsString $other
+     * @return bool
+     */
+    public function sameAs($other)
     {
         /* @var IsString $other */
         return get_class($this) === get_class($other) &&
             $this->toString() === $other->toString();
     }
 
+    /**
+     * @param mixed $value
+     */
     private function guardString($value)
     {
         if (!is_string($value)) {
@@ -30,6 +38,9 @@ trait IsString
         }
     }
 
+    /**
+     * @param string $value
+     */
     private function setValue($value)
     {
         $this->guardString($value);

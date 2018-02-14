@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace TwoDotsTwice\ValueObject\Integer\Behaviour;
 
 trait IsInteger
@@ -11,7 +9,10 @@ trait IsInteger
      */
     private $value;
 
-    public function toInteger() : int
+    /**
+     * @return int
+     */
+    public function toInteger()
     {
         return $this->value;
     }
@@ -20,7 +21,7 @@ trait IsInteger
      * @param IsInteger|mixed $other
      * @return bool
      */
-    public function sameAs($other) : bool
+    public function sameAs($other)
     {
         return get_class($this) === get_class($other) && $this->toInteger() === $other->toInteger();
     }
@@ -29,7 +30,7 @@ trait IsInteger
      * @param IsInteger $other
      * @return bool
      */
-    public function lt($other) : bool
+    public function lt($other)
     {
         $this->guardSameType($other);
         return $this->toInteger() < $other->toInteger();
@@ -39,7 +40,7 @@ trait IsInteger
      * @param IsInteger $other
      * @return bool
      */
-    public function lte($other) : bool
+    public function lte($other)
     {
         $this->guardSameType($other);
         return $this->toInteger() <= $other->toInteger();
@@ -49,7 +50,7 @@ trait IsInteger
      * @param IsInteger $other
      * @return bool
      */
-    public function gt($other) : bool
+    public function gt($other)
     {
         $this->guardSameType($other);
         return $this->toInteger() > $other->toInteger();
@@ -59,7 +60,7 @@ trait IsInteger
      * @param IsInteger $other
      * @return bool
      */
-    public function gte($other) : bool
+    public function gte($other)
     {
         $this->guardSameType($other);
         return $this->toInteger() >= $other->toInteger();

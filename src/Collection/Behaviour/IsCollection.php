@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace TwoDotsTwice\ValueObject\Collection\Behaviour;
 
 trait IsCollection
@@ -11,11 +9,17 @@ trait IsCollection
      */
     protected $values;
 
-    public function toArray() : array
+    /**
+     * @return array
+     */
+    public function toArray()
     {
         return $this->values;
     }
 
+    /**
+     * @param array $values
+     */
     private function setValues(array $values)
     {
         $this->values = $values;
