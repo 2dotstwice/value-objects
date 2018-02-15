@@ -5,7 +5,7 @@ namespace TwoDotsTwice\ValueObject\String\Behaviour;
 class MockTrimmedLeftToRight
 {
     use IsString;
-    use IsTrimmed;
+    use Trims;
 
     public function __construct($value)
     {
