@@ -26,6 +26,17 @@ abstract class Collection implements \IteratorAggregate, \Countable
     }
 
     /**
+     * @param mixed $value
+     * @return Collection
+     */
+    public function with($value)
+    {
+        $values = $this->values;
+        $values[] = $value;
+        return new static(...$values);
+    }
+
+    /**
      * @param callable $callback
      * @return static
      * @see array_filter
