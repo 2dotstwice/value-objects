@@ -42,11 +42,15 @@ class MatchesUUIDPatternTest extends \PHPUnit_Framework_TestCase
                 'stringValue' => '74738ff5-5367-5958-9aee-98fffdcd1876',
                 'expectException' => false,
             ],
-            'multi-line' => [
-                'stringValue' => PHP_EOL . '74738ff5-5367-5958-9aee-98fffdcd1876' . PHP_EOL,
+            'eol-at-start' => [
+                'stringValue' => PHP_EOL . '74738ff5-5367-5958-9aee-98fffdcd1876',
                 'expectException' => true,
             ],
-            'multi-value' => [
+            'eol-at-end' => [
+                'stringValue' => '74738ff5-5367-5958-9aee-98fffdcd1876' . PHP_EOL,
+                'expectException' => true,
+            ],
+            'multi-line' => [
                 'stringValue' => '74738ff5-5367-5958-9aee-98fffdcd1876' . PHP_EOL
                     . '76831861-4706-4362-a42d-8710e32bd1ba',
                 'expectException' => true,
