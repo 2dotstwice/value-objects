@@ -2,7 +2,7 @@
 
 namespace TwoDotsTwice\ValueObject\String\Behaviour;
 
-trait IsTrimmed
+trait Trims
 {
     private function trim($value, $characters = " \t\n\r\0\x0B")
     {
