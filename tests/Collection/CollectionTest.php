@@ -207,4 +207,33 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($values[3], $collection->getLast());
         $this->assertNull($emptyCollection->getLast());
     }
+
+    /**
+     * @test
+     */
+    public function it_should_append_each_new_value_to_a_copy()
+    {
+        $initial = new MockCollection(new MockString('foo'));
+        $second = $initial->with(new MockString('bar'));
+        $third = $second->with(new MockString('lorem'));
+
+        $expectedInitial = [
+            new MockString('foo'),
+        ];
+
+        $expectedSecond = [
+            new MockString('foo'),
+            new MockString('bar'),
+        ];
+
+        $expectedThird = [
+            new MockString('foo'),
+            new MockString('bar'),
+            new MockString('lorem'),
+        ];
+
+        $this->assertEquals($expectedInitial, $initial->toArray());
+        $this->assertEquals($expectedSecond, $second->toArray());
+        $this->assertEquals($expectedThird, $third->toArray());
+    }
 }
