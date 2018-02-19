@@ -27,7 +27,8 @@ abstract class Enum
      * @param string $value
      * @throws \InvalidArgumentException
      */
-    private function guardAllowedValue($value) {
+    private function guardAllowedValue($value)
+    {
         $allowed = $this->getAllowedValues();
         if (!in_array($value, $allowed)) {
             throw new \InvalidArgumentException(
