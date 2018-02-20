@@ -103,6 +103,25 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function it_should_be_able_to_check_if_the_collection_is_empty_or_not()
+    {
+        $values = [
+            new MockString('foo'),
+            new MockString('bar'),
+            new MockString('lorem'),
+            new MockString('ipsum'),
+        ];
+
+        $collection = new MockCollection(...$values);
+        $emptyCollection = new MockCollection();
+
+        $this->assertFalse($collection->isEmpty());
+        $this->assertTrue($emptyCollection->isEmpty());
+    }
+
+    /**
+     * @test
+     */
     public function it_should_be_able_to_tell_if_a_given_value_exists_within_the_collection()
     {
         $values = [

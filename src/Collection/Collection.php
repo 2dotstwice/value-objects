@@ -36,7 +36,7 @@ abstract class Collection implements \IteratorAggregate, \Countable
 
     /**
      * @param mixed $value
-     * @return Collection
+     * @return static
      */
     public function with($value)
     {
@@ -77,11 +77,12 @@ abstract class Collection implements \IteratorAggregate, \Countable
     }
 
     /**
-     *
+     * @return bool
+     * @see empty
      */
     public function isEmpty()
     {
-
+        return empty($this->values);
     }
 
     /**
