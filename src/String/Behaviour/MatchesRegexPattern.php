@@ -7,15 +7,21 @@ trait MatchesRegexPattern
     /**
      * @param string $pattern
      * @param string $value
+     * @param string|null $customExceptionMessage
      * @throws \InvalidArgumentException
      */
-    private function guardRegexPattern($pattern, $value)
+    private function guardRegexPattern($pattern, $value, $customExceptionMessage = null)
     {
         /* @var IsString $this */
         $this->guardString($value);
 
         if (!preg_match($pattern, $value)) {
-            throw new \InvalidArgumentException("String '{$value}' does not match regex pattern {$pattern}.");
+            $message = "String '{$value}' does not match regex pattern {$pattern}.";
+            if ($customExceptionMessage) {
+                $message = $customExceptionMessage;
+            }
+
+            throw new \InvalidArgumentException($message);
         }
     }
 }
