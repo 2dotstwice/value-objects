@@ -14,6 +14,15 @@ abstract class Collection implements \IteratorAggregate, \Countable
      */
     public function __construct(...$values)
     {
+        array_walk(
+            $values,
+            function ($value, $key) {
+                if (!is_object($value)) {
+                    throw new \InvalidArgumentException("Value for key {$key} is not an object.");
+                }
+            }
+        );
+
         $this->values = $values;
     }
 
@@ -65,6 +74,14 @@ abstract class Collection implements \IteratorAggregate, \Countable
     public function getLength()
     {
         return count($this->values);
+    }
+
+    /**
+     *
+     */
+    public function isEmpty()
+    {
+
     }
 
     /**

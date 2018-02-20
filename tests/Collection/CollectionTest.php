@@ -26,6 +26,24 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function it_should_only_accept_objects_as_values()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Value for key 0 is not an object.");
+
+        $values = [
+            new MockString('foo'),
+            new MockString('bar'),
+            new MockString('lorem'),
+            new MockString('ipsum'),
+        ];
+
+        new BrokenMockCollection(...$values);
+    }
+
+    /**
+     * @test
+     */
     public function it_should_accept_an_array_of_values_and_return_the_same_array_later()
     {
         $values = [
