@@ -19,22 +19,25 @@ abstract class Enum
     }
 
     /**
-     * @return string[]
-     */
-    abstract protected function getAllowedValues();
-
-    /**
      * @param string $value
      * @throws \InvalidArgumentException
      */
     private function guardAllowedValue($value)
     {
-        $allowed = $this->getAllowedValues();
+        $allowed = static::getAllowedValues();
         if (!in_array($value, $allowed)) {
             throw new \InvalidArgumentException(
                 "Encountered unknown value '{$value}'. Allowed values: " . implode(', ', $allowed)
             );
         }
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function getAllowedValues()
+    {
+        return [];
     }
 
     /**
