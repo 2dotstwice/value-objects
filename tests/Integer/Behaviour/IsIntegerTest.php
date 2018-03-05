@@ -2,8 +2,6 @@
 
 namespace TwoDotsTwice\ValueObject\Integer\Behaviour;
 
-use TwoDotsTwice\ValueObject\String\Behaviour\MockString;
-
 class IsIntegerTest extends \PHPUnit_Framework_TestCase
 {
     /**
