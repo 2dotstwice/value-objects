@@ -30,6 +30,16 @@ trait IsInteger
      * @param IsInteger $other
      * @return bool
      */
+    public function equals($other)
+    {
+        $this->guardSameType($other);
+        return $this->toInteger() === $other->toInteger();
+    }
+    
+    /**
+     * @param IsInteger $other
+     * @return bool
+     */
     public function lt($other)
     {
         $this->guardSameType($other);

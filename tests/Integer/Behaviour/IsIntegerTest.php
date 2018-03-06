@@ -2,8 +2,6 @@
 
 namespace TwoDotsTwice\ValueObject\Integer\Behaviour;
 
-use TwoDotsTwice\ValueObject\String\Behaviour\MockString;
-
 class IsIntegerTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -28,6 +26,10 @@ class IsIntegerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($one->sameAs($one));
         $this->assertTrue($two->sameAs($two));
         $this->assertFalse($one->sameAs($two));
+
+        $this->assertTrue($one->equals($one));
+        $this->assertFalse($one->equals($two));
+        $this->assertFalse($one->equals($three));
 
         $this->assertFalse($one->lt($one));
         $this->assertTrue($one->lt($two));
