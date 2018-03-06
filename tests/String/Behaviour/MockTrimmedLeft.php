@@ -2,14 +2,14 @@
 
 namespace TwoDotsTwice\ValueObject\String\Behaviour;
 
-class MockTrimmedLeftToRight
+class MockTrimmedLeft
 {
     use IsString;
     use Trims;
 
     public function __construct($value)
     {
-        $value = $this->trimLeftToRight($value);
+        $value = $this->trimLeft($value);
         $this->setValue($value);
     }
 }

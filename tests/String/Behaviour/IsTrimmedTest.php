@@ -55,7 +55,7 @@ class IsTrimmedTest extends \PHPUnit_Framework_TestCase
      */
     public function it_should_trim_left_to_right($original, $expected)
     {
-        $trimmed = new MockTrimmedLeftToRight($original);
+        $trimmed = new MockTrimmedLeft($original);
         $this->assertEquals($expected, $trimmed->toString());
     }
 
@@ -97,7 +97,7 @@ class IsTrimmedTest extends \PHPUnit_Framework_TestCase
      */
     public function it_should_trim_right_to_left($original, $expected)
     {
-        $trimmed = new MockTrimmedRightToLeft($original);
+        $trimmed = new MockTrimmedRight($original);
         $this->assertEquals($expected, $trimmed->toString());
     }
 
